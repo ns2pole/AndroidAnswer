@@ -42,6 +42,18 @@
         app:layout_constraintLeft_toLeftOf="@+id/button7"
         />
 
+    <TextView
+        android:id="@+id/operator"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:text=""
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintLeft_toLeftOf="@+id/button1"
+        />
+
     <Button
         android:id="@+id/button1"
         android:text="1"
@@ -148,13 +160,33 @@
         />
 
     <Button
-        android:id="@+id/buttonTimes"
-        android:text="×"
+        android:id="@+id/buttonPlus"
+        android:text="+"
         android:textSize="32dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/button6"
         app:layout_constraintLeft_toLeftOf="@+id/button6"
+        />
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:text="-"
+        android:textSize="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/button9"
+        app:layout_constraintLeft_toLeftOf="@+id/button9"
+        />
+
+    <Button
+        android:id="@+id/buttonTimes"
+        android:text="×"
+        android:textSize="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPlus"
+        app:layout_constraintLeft_toLeftOf="@+id/buttonPlus"
         />
 
     <Button
@@ -165,8 +197,8 @@
         android:paddingBottom="12dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/button9"
-        app:layout_constraintLeft_toLeftOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMinus"
+        app:layout_constraintLeft_toLeftOf="@+id/buttonMinus"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

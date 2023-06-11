@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    boolean flag = false;
+    boolean displayFlag = false;
+    String operator = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button8).setOnClickListener(m);
         findViewById(R.id.button9).setOnClickListener(m);
         findViewById(R.id.button0).setOnClickListener(m);
-        findViewById(R.id.button0).setOnClickListener(m);
         SetValSwitchListener s = new SetValSwitchListener();
+        findViewById(R.id.buttonPlus).setOnClickListener(s);
+        findViewById(R.id.buttonMinus).setOnClickListener(s);
         findViewById(R.id.buttonTimes).setOnClickListener(s);
         CalcListener c = new CalcListener();
         findViewById(R.id.buttonCalc).setOnClickListener(c);
-
     }
 
     private class MyClickListener implements View.OnClickListener {
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             TextView tv = null;
             Button b = findViewById(view.getId());
-            if(flag == false) {
+            if(displayFlag == false) {
                 tv = findViewById(R.id.id1);
             } else {
                 tv = findViewById(R.id.id2);
@@ -56,11 +58,13 @@ public class MainActivity extends AppCompatActivity {
     private class SetValSwitchListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            if(flag == false) {
-                flag = true;
+            Button b = findViewById(view.getId());
+            if(displayFlag == false) {
+                displayFlag = true;
             } else {
-                flag = false;
+                displayFlag = false;
             }
+            operator = b.getText().toString();
         }
     }
 
@@ -72,7 +76,14 @@ public class MainActivity extends AppCompatActivity {
             TextView tv3 = findViewById(R.id.id3);
             Integer int1 = Integer.valueOf(tv1.getText().toString());
             Integer int2 = Integer.valueOf(tv2.getText().toString());
-            Integer result = (int1 * int2);
+            Integer result = null;
+            if(operator.equals("+")) {
+                result = int1 + int2;
+            } else if(operator.equals("-")) {
+                result = int1 - int2;
+            } else if(operator.equals("×")) {
+                result = int1 * int2;
+            }
             tv3.setText(result.toString());
         }
     }
