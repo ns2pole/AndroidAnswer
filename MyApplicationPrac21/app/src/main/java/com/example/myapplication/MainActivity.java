@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         MyClickListener3 m3 = new MyClickListener3();
         Button b3 = findViewById(R.id.button3);
         b3.setOnClickListener(m3);
+
+        MyClickListener4 m4 = new MyClickListener4();
+        Button b4 = findViewById(R.id.button4);
+        b4.setOnClickListener(m4);
     }
 
     private class MyClickListener1 implements View.OnClickListener {
@@ -57,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             Integer product = int1 * int2;
             String str = Integer.valueOf(product).toString();
             tv3.setText(str); ;
+        }
+    }
+
+    private class MyClickListener4 implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            MyDialogFragment md = new MyDialogFragment();
+            md.show(getSupportFragmentManager(), "MyDialogFragment");
         }
     }
 
