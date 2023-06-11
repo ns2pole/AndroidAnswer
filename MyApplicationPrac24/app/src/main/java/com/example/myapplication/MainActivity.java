@@ -38,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
     private class MyClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
+            TextView tv = null;
+            Button b = findViewById(view.getId());
             if(flag == false) {
-                TextView tv = findViewById(R.id.id1);
-                Button b = findViewById(view.getId());
-                tv.setText(b.getText().toString());
+                tv = findViewById(R.id.id1);
             } else {
-                TextView tv = findViewById(R.id.id2);
-                Button b = findViewById(view.getId());
+                tv = findViewById(R.id.id2);
+            }
+            if(!tv.getText().toString().equals("0")) {
+                tv.setText(tv.getText().toString() + b.getText().toString());
+            } else {
                 tv.setText(b.getText().toString());
             }
         }
