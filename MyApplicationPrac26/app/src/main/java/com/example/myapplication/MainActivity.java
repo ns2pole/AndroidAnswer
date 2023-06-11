@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonPlus).setOnClickListener(s);
         findViewById(R.id.buttonMinus).setOnClickListener(s);
         findViewById(R.id.buttonTimes).setOnClickListener(s);
+        findViewById(R.id.buttonDivide).setOnClickListener(s);
         CalcListener c = new CalcListener();
         findViewById(R.id.buttonCalc).setOnClickListener(c);
     }
@@ -76,13 +77,19 @@ public class MainActivity extends AppCompatActivity {
             TextView tv3 = findViewById(R.id.id3);
             Integer int1 = Integer.valueOf(tv1.getText().toString());
             Integer int2 = Integer.valueOf(tv2.getText().toString());
-            Integer result = null;
+            Object result = null;
             if(operator.equals("+")) {
                 result = int1 + int2;
             } else if(operator.equals("-")) {
                 result = int1 - int2;
             } else if(operator.equals("×")) {
                 result = int1 * int2;
+            } else if(operator.equals("÷")) {
+                if(tv2.getText().toString().equals("0")) {
+                    result = "undefined";
+                } else {
+                    result = int1 / int2;
+                }
             }
             tv3.setText(result.toString());
         }
