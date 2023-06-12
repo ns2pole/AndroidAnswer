@@ -10,7 +10,7 @@
         android:id="@+id/id1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="テスト"
+        android:text="0"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/button"
-        android:text="Button"
+        android:text="ButtonTest"
         android:layout_marginStart="160dp"
         android:layout_marginTop="252dp"
         android:textSize="32dp"
