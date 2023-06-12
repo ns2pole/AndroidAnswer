@@ -1,12 +1,11 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             TextView tv = findViewById(R.id.id1);
-            Integer integer = Integer.parseInt(tv.getText().toString());
-            integer++;
-            tv.setText(integer.toString());
+            tv.setText("test1");
+            Toast.makeText(getApplicationContext(), tv.getText().toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
